@@ -1,0 +1,62 @@
+page id=118526464683996
+
+https://graph.facebook.com/v18.0/118526464683996/CONVERSATION-ID?fields=messages&access_token=EAAJZBiLR3MAwBO6oZAGrXGPOLZAdWb4uOmhTA9soNKNPWMHMu3dhnkEobRaV0Mu8ZCKKv28hvTgw5ZAMHvbXk2zT2dd6syhu0RlYplFIttVpwGfCeRReQZAPI5tMhqsP6BREa5optyKeBHJ4V0uZCpu8hqavMp6jrIndnWgDEWAORtAVCo8vTTtZAck8nRGZBGBkp5pvrHQeoFMDvKxSD0nyViZAEhgs9gZAvoZD
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Facebook\GraphAPI;
+use Facebook\Facebook;
+use Facebook\Exceptions\FacebookResponseException;
+use Facebook\Exceptions\FacebookSDKException;
+use Facebook\GraphNodes\GraphMessage;
+
+class FacebookController extends Controller
+{
+    public function index(Request $request)
+    {
+      $fb = new Facebook([
+        'app_id' => '702075561783308',
+        'app_secret' => '6fdaae80ab511fbcdabb6dac27b7b53e',
+        'default_graph_version' => 'v18.0', // Choose the desired API version
+    ]);
+    $fb->setDefaultAccessToken('EAAJZBiLR3MAwBO6oZAGrXGPOLZAdWb4uOmhTA9soNKNPWMHMu3dhnkEobRaV0Mu8ZCKKv28hvTgw5ZAMHvbXk2zT2dd6syhu0RlYplFIttVpwGfCeRReQZAPI5tMhqsP6BREa5optyKeBHJ4V0uZCpu8hqavMp6jrIndnWgDEWAORtAVCo8vTTtZAck8nRGZBGBkp5pvrHQeoFMDvKxSD0nyViZAEhgs9gZAvoZD');
+    
+
+    // Use $fb to make requests to the Facebook Graph API.
+    // For example:
+
+    $response = $fb->get('/me/conversations');
+   
+    return response()->json($response);
+    
+//     $conversations = $response->getGraphEdge();
+//     } catch (FacebookResponseException $e) {
+//         // Handle API response errors
+//     } catch (FacebookSDKException $e) {
+//         // Handle SDK-related errors
+//     }
+    
+
+//     foreach ($conversations as $conversation) {
+//     $conversationId = $conversation['id'];
+
+//     try {
+//         $response = $fb->get("/{$conversationId}/messages");
+//         $messages = $response->getGraphEdge();
+        
+//         // Process and display the messages
+//     } catch (FacebookResponseException $e) {
+//         // Handle API response errors
+//     } catch (FacebookResponseException $e) {
+//         // Handle SDK-related errors
+//     }
+// }
+    
+        // return view('welcome');
+    }
+}
+
+
