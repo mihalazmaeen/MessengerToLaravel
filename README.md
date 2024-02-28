@@ -1,2 +1,2 @@
-Get messages from messenger to your laravel dashboard
+Get messages from messenger to your laravel dashboard.
 Workflow:
